@@ -12,6 +12,7 @@ public class Ports {             // public: we want it to be accessible, right?
     public static final int DRIVETRAIN_LEFT_SLAVE = 1;
     public static final int DRIVETRAIN_RIGHT_MASTER = 5;
     public static final int DRIVETRAIN_RIGHT_SLAVE = 6;
+    public static final int DRIVETRAIN_RIGHT_SLAVEAAA = 7;
     /*
      *Rest of all the talons, encoders, etc. go here 
      * 

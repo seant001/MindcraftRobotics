@@ -1,4 +1,6 @@
-public class Constants { //MODIFY BASED ON OUR ROBOT
+package frc.robot;
+
+public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Arm {
         public static final double kMaxVelocity = 1.0;    // ft / s    // mark your units wherever they aren't intensely obvious
         public static final double kMaxHeight = 8.0;    // ft
@@ -8,6 +10,7 @@ public class Constants { //MODIFY BASED ON OUR ROBOT
     public static class Drivetrain {
         public static final double kWheelBase = 3.0;    // ft    // try as hard as you can to keep your units consistent: if you use feet, use feet, not inches
         // ...
+        public static final double lmaotest = 4.5;//test test test
     }
     // ...
 }

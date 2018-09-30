@@ -11,8 +11,6 @@ public class Drivetrain
     TalonSRX drivetrain_rightSlave;
 
     //enums/state variables
-    double leftVolts;
-    double rightVolts;
 
     //constructors
     private Drivetrain()
@@ -59,6 +57,9 @@ public class Drivetrain
     }
     public static sendInputNyooms(double left, double right)
     {
+     double leftVolts;
+     double rightVolts;
+     
      leftVolts = (left > 0) ?
         Constants.Drivetrain.Left.Forward.kStaticFrictionFeedForward:
         Constants.Drivetrain.Left.Reverse.kStaticFrictionFeedForward;

@@ -5,10 +5,10 @@ import frc.robot.Constants;
 public class Drivetrain
 {
     //talons, subsystems, etc.
-    TalonSRX drivetrain_leftMaster;
-    TalonSRX drivetrain_leftSlave;
-    TalonSRX drivetrain_rightMaster;
-    TalonSRX drivetrain_rightSlave;
+    private TalonSRX drivetrain_leftMaster;
+    private TalonSRX drivetrain_leftSlave;
+    private TalonSRX drivetrain_rightMaster;
+    private TalonSRX drivetrain_rightSlave;
 
     //enums/state variables
 
@@ -25,6 +25,8 @@ public class Drivetrain
 
         drivetrain_rightMaster.ConfigVoltageCompSaturation(Constants.Drivetrain.kMaxVoltage, 10);
         drivetrain_rightMaster.EnableVoltageCompensation(true);
+        drivetrain_rightMaster.setInverted(true);
+        drivetrain_rightSlave.setInverted(true);
         drivetrain_leftMaster.ConfigVoltageCompSaturation(Constants.Drivetrain.kMaxVoltage, 10);
         drivetrain_leftMaster.EnableVoltageCompensation(true);
 

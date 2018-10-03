@@ -29,49 +29,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/Robot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#3408#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/Ports.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/Constants.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/subsystems/Intake.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/subsystems/Drivetrain.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/controlsystem/RoboSystem.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exampleTestBois/src/main/java/frc/robot/subsystems/Arm.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,25 +55,17 @@
             <path>
               <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
               <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
               <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
               <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -123,43 +73,10 @@
             <path>
               <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
               <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="frc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="frc" type="462c0819:PsiDirectoryNode" />
-              <item name="robot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="frc" type="462c0819:PsiDirectoryNode" />
-              <item name="robot" type="462c0819:PsiDirectoryNode" />
-              <item name="controlsystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MindcraftRobotics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MindcraftRobotics" type="462c0819:PsiDirectoryNode" />
-              <item name="exampleTestBois" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="frc" type="462c0819:PsiDirectoryNode" />
-              <item name="robot" type="462c0819:PsiDirectoryNode" />
-              <item name="subsystems" type="462c0819:PsiDirectoryNode" />
+              <item name="team3495" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -168,7 +85,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538530958903" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538531192613" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -184,15 +101,14 @@
     </option>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="749" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="683" height="749" extended-state="6" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24981357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.50911856" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />

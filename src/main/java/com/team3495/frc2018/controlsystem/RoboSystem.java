@@ -1,8 +1,8 @@
-package frc.robot.controlsystem;
+package com.team3495.frc2018.controlsystem;
 
-import frc.robot.subsystems.Arm;
-import frc.robot.subsystems.Intake;
-import frc.robot.subsystems.Drivetrain;
+import com.team3495.frc2018.subsystems.Arm;
+import com.team3495.frc2018.subsystems.Intake;
+import com.team3495.frc2018.subsystems.Drivetrain;
 
 public class RoboSystem {
 

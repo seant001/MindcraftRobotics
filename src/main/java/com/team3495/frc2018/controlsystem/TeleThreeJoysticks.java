@@ -1,6 +1,6 @@
-package frc.robot.controlsystem;
+package com.team3495.frc2018.controlsystem;
 
-import frc.robot.controlsystem.RoboSystem;
+import com.team3495.frc2018.controlsystem.RoboSystem;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class TeleThreeJoysticks

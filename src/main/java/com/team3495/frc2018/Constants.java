@@ -1,4 +1,4 @@
-package frc.robot;
+package com.team3495.frc2018;
 
 public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Arm 

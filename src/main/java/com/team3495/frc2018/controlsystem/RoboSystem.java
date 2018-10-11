@@ -11,9 +11,9 @@ public class RoboSystem {
     public Intake intake;
 
     private RoboSystem() {
-        arm = new Arm();
-        drivetrain = new Drivetrain();
-        intake = new Intake();
+        arm = Arm.getInstance();
+        drivetrain = Drivetrain.getInstance();
+        intake = Intake.getInstance();
     }
 
     private static RoboSystem instance = null;

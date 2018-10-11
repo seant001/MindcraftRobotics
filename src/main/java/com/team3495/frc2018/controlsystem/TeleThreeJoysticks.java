@@ -2,6 +2,9 @@ package com.team3495.frc2018.controlsystem;
 
 import com.team3495.frc2018.controlsystem.RoboSystem;
 import edu.wpi.first.wpilibj.Joystick;
+import com.team3495.frc2018.Ports;
+import com.team3495.frc2018.Util;
+import com.team3495.frc2018.Constants;
 
 public class TeleThreeJoysticks
 {
@@ -12,19 +15,40 @@ public class TeleThreeJoysticks
 
     private TeleThreeJoysticks()
     {
-        robosystem = new RoboSystem();
-        driverLeft = new Joystick();
-        driverRight = new Joystick();
-        coDriver = new Joystick();
+        robosystem = RoboSystem.getInstance();
+        driverLeft = new Joystick(Ports.JOYSTICK_LEFT);
+        driverRight = new Joystick(Ports.JOYSTICK_RIGHT);
+        coDriver = new Joystick(Ports.JOYSTICK_CODRIVER);
     } 
-    driver()
+    private void driver()
     {
-        robosystem.drivetrain.sendInputNormalized(driverLeft.getAxis(), driverRight.getAxis());
+        double left = Util.deadbandAndBound(driverLeft.getRawAxis(Constants.ControlAxes.yAxis),
+        Constants.TeleThreeJoysticks.Deadbands.Left.kMinReverse, 
+        Constants.TeleThreeJoysticks.Deadbands.Left.kMinForward,
+        -1.0, 1.0);
+        double right = Util.deadbandAndBound(driverRight.getRawAxis(Constants.ControlAxes.yAxis),
+        Constants.TeleThreeJoysticks.Deadbands.Right.kMinReverse, 
+        Constants.TeleThreeJoysticks.Deadbands.Right.kMinForward,
+        -1.0, 1.0);
+
+        robosystem.drivetrain.sendInputNormalized(left, right);
+   
+   
     }
-    coDriver()
+    private void coDriver()
     {
-
-
+        if(coDriver.getRawButtonPressed(Constants.TeleThreeJoysticks.Buttons.intakeIn))
+        {
+            robosystem.intake.sendInputVolts(Constants.Intake.kIntaking);
+        }else if(coDriver.getRawButtonPressed(Constants.TeleThreeJoysticks.Buttons.intakeOut))
+        {
+            robosystem.intake.sendInputVolts(Constants.Intake.kOuttaking);
+        }
+    }
+    public void update()
+    {
+        driver();
+        coDriver();
     }
 
     private static TeleThreeJoysticks instance = null;
@@ -33,4 +57,5 @@ public class TeleThreeJoysticks
         if(instance == null) instance = new TeleThreeJoysticks();
         return instance;
 
+}
 }

@@ -12,7 +12,7 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     {
         public static final double kWheelBase = 3.0;    // ft    // try as hard as you can to keep your units consistent: if you use feet, use feet, not inches
         public static final double kMaxVoltage = 12.0;
-    }
+    
         public static class Left
      {
             public static class Forward
@@ -43,5 +43,39 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
             }
 
 
+    }
+}
+    public static class ControlAxes
+    {
+        public static final int xAxis = 0;
+        public static final int yAxis = 1;
+    }
+    public static class Intake
+    {
+        public static final double kMaxVoltage =  12.0;
+        public static final double kIntaking = 2.0;
+        public static final double kOuttaking = -5.0;
+
+    }
+    public static class TeleThreeJoysticks
+    {
+        public static class Buttons
+    {
+        public static final int intakeOut = 4;
+        public static final int intakeIn = 5;
+    }
+        public static final class Deadbands
+        {
+            public static class Left
+            {
+                public static final double kMinForward = .2;
+                public static final double kMinReverse = -.2;
+            }
+            public static class Right
+            {
+                public static final double kMinForward = .2;
+                public static final double kMinReverse = -.2;
+            }
+        }
     }
 }

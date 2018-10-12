@@ -12,6 +12,7 @@ import com.team3495.frc2018.controlsystem.TeleThreeJoysticks;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Compressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,7 +26,8 @@ public class Robot extends IterativeRobot {
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
-  private TeleThreeJoysticks teleControllers; //
+  private TeleThreeJoysticks teleControllers;
+  private Compressor compressor;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -37,6 +39,8 @@ public class Robot extends IterativeRobot {
     m_chooser.addObject("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
     teleControllers = TeleThreeJoysticks.getInstance();
+    
+	compressor = new Compressor(0);
   }
 
   /**

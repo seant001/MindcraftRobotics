@@ -3,10 +3,10 @@ package com.team3495.frc2018;
 public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Arm 
     {
-        public static final double kMaxVelocity = 1.0;    // ft / s    // mark your units wherever they aren't intensely obvious
-        public static final double kMaxHeight = 8.0;    // ft
-        public static final double kMinHeight = 0.0;    // ft
-        public static final int kTicksPerFoot = 1234;    // you don't need to specify units here because they're literally in the name (encoder ticks / foot)
+       public static final double kMaxVoltage = 12.0;
+       public static final double kSteadyStateFeedforward = 2.0;
+       public static final double kRaiseVoltage = 8.0;
+       public static final double kLowerVoltage = -8.0;
     }
     public static class Drivetrain 
     {
@@ -53,8 +53,9 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Intake
     {
         public static final double kMaxVoltage =  12.0;
-        public static final double kIntaking = 2.0;
+        public static final double kIntaking = 5.0;
         public static final double kOuttaking = -5.0;
+        public static final double kHolding = 0.5;
 
     }
     public static class TeleThreeJoysticks
@@ -63,18 +64,20 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     {
         public static final int intakeOut = 4;
         public static final int intakeIn = 5;
+        public static final int armRaise = 1;
+        public static final int armLower = 2;
     }
         public static final class Deadbands
         {
             public static class Left
             {
-                public static final double kMinForward = .2;
-                public static final double kMinReverse = -.2;
+                public static final double kMinForward = .1;
+                public static final double kMinReverse = -.1;
             }
             public static class Right
             {
-                public static final double kMinForward = .2;
-                public static final double kMinReverse = -.2;
+                public static final double kMinForward = .1;
+                public static final double kMinReverse = -.1;
             }
         }
     }

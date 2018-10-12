@@ -1,6 +1,9 @@
 package com.team3495.frc2018.controlsystem;
 
 import com.team3495.frc2018.controlsystem.RoboSystem;
+import com.team3495.frc2018.subsystems.Arm;
+import com.team3495.frc2018.subsystems.Intake;
+
 import edu.wpi.first.wpilibj.Joystick;
 import com.team3495.frc2018.Ports;
 import com.team3495.frc2018.Util;
@@ -37,12 +40,24 @@ public class TeleThreeJoysticks
     }
     private void coDriver()
     {
-        if(coDriver.getRawButtonPressed(Constants.TeleThreeJoysticks.Buttons.intakeIn))
+        if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeIn))
         {
-            robosystem.intake.sendInputVolts(Constants.Intake.kIntaking);
-        }else if(coDriver.getRawButtonPressed(Constants.TeleThreeJoysticks.Buttons.intakeOut))
+            robosystem.intake.requestState(Intake.State.INTAKING);
+        }else if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeOut))
         {
-            robosystem.intake.sendInputVolts(Constants.Intake.kOuttaking);
+            robosystem.intake.requestState(Intake.State.OUTTAKING);
+        }else
+        {
+            robosystem.intake.requestState(Intake.State.IDLE);
+        }
+        if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.armRaise))
+        {
+            robosystem.arm.requestState(Arm.State.GOING_UP);
+        }else if (coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.armLower))
+        {
+            robosystem.arm.requestState(Arm.State.GOING_DOWN);
+        }else {
+            robosystem.arm.requestState(Arm.State.HOLDING);
         }
     }
     public void update()

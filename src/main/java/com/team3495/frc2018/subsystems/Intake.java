@@ -9,7 +9,13 @@ public class Intake
 {
     private TalonSRX intake_left;
     private TalonSRX intake_right;
-
+    public enum State {
+        INTAKING,
+        HOLDING,
+        OUTTAKING,
+        IDLE
+    }
+    private State state;
 
     private static Intake instance = null;
 
@@ -29,6 +35,7 @@ public class Intake
             intake_left.configVoltageCompSaturation(Constants.Intake.kMaxVoltage, 10);
             intake_left.enableVoltageCompensation(true);
             //intake_left.configContinuousCurrentLimit(30, 10); TODO
+            state = State.IDLE;
         }
         public void sendInputNormalized(double input)
         {
@@ -40,6 +47,20 @@ public class Intake
          volts /= Constants.Intake.kMaxVoltage;
          sendInputNormalized(volts);
         }
+       public void requestState(State state)
+       {
+        this.state = state;
+        switch(this.state){
+            case INTAKING: sendInputVolts(Constants.Intake.kIntaking);
+            break;
+            case OUTTAKING: sendInputVolts(Constants.Intake.kOuttaking);
+            break;
+            case HOLDING: sendInputVolts(Constants.Intake.kHolding);
+            break;
+            case IDLE:
+            default: sendInputVolts(0.0);
+        }
+       }
     
     
 }

@@ -5,18 +5,26 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.team3495.frc2018.Constants;
 import com.team3495.frc2018.Ports;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 public class Intake
 {
     private TalonSRX intake_left;
     private TalonSRX intake_right;
-    public enum State {
+    private DoubleSolenoid double_s;
+    private boolean isOpen;
+    public enum RollerState {
         INTAKING,
         HOLDING,
         OUTTAKING,
         IDLE
     }
-    private State state;
-
+    public enum PistonState {
+        OPEN,
+        CLOSED
+    }
+    private RollerState roller_state;
+    private PistonState piston_state;
     private static Intake instance = null;
 
     public static Intake getInstance() {
@@ -28,6 +36,7 @@ public class Intake
         {
             intake_left = new TalonSRX(Ports.INTAKE_LEFT);
             intake_right = new TalonSRX(Ports.INTAKE_RIGHT);
+            double_s = new DoubleSolenoid(0,1);
 
             intake_right.follow(intake_left);
             intake_right.setInverted(false);
@@ -35,7 +44,8 @@ public class Intake
             intake_left.configVoltageCompSaturation(Constants.Intake.kMaxVoltage, 10);
             intake_left.enableVoltageCompensation(true);
             //intake_left.configContinuousCurrentLimit(30, 10); TODO
-            state = State.IDLE;
+            roller_state = RollerState.IDLE;
+            piston_state = PistonState.OPEN;
         }
         public void sendInputNormalized(double input)
         {
@@ -47,10 +57,10 @@ public class Intake
          volts /= Constants.Intake.kMaxVoltage;
          sendInputNormalized(volts);
         }
-       public void requestState(State state)
+       public void requestState(RollerState state)
        {
-        this.state = state;
-        switch(this.state){
+        this.roller_state = state;
+        switch(this.roller_state){
             case INTAKING: sendInputVolts(Constants.Intake.kIntaking);
             break;
             case OUTTAKING: sendInputVolts(Constants.Intake.kOuttaking);
@@ -60,7 +70,30 @@ public class Intake
             case IDLE:
             default: sendInputVolts(0.0);
         }
-       }
+        
+      }
+
+      public void requestState(PistonState state){
+        this.piston_state = state;
+        switch(this.piston_state) {
+            case OPEN: openIntake();
+            break;
+            case CLOSED: closeIntake();
+            break;
+            default:
+            break;
+        }
+      }
+
+      public void openIntake() {
+        if (isOpen) double_s.set(DoubleSolenoid.Value.kReverse);
+        isOpen = true;
+    }
+
+      public void closeIntake() {
+        if(!isOpen) double_s.set(DoubleSolenoid.Value.kForward);
+        isOpen = false;
+      }
     
     
 }

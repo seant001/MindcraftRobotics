@@ -35,21 +35,31 @@ public class TeleThreeJoysticks
         -1.0, 1.0);
 
         robosystem.drivetrain.sendInputNormalized(left, right);
+        if (driverRight.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeOpen))
+        {
+            robosystem.intake.requestState(Intake.PistonState.OPEN);
+        }else{
+            robosystem.intake.requestState(Intake.PistonState.CLOSED);
+        }
+
+        
    
+
    
     }
     private void coDriver()
     {
         if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeIn))
         {
-            robosystem.intake.requestState(Intake.State.INTAKING);
+            robosystem.intake.requestState(Intake.RollerState.INTAKING);
         }else if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeOut))
         {
-            robosystem.intake.requestState(Intake.State.OUTTAKING);
+            robosystem.intake.requestState(Intake.RollerState.OUTTAKING);
         }else
         {
-            robosystem.intake.requestState(Intake.State.IDLE);
+            robosystem.intake.requestState(Intake.RollerState.IDLE);
         }
+
         if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.armRaise))
         {
             robosystem.arm.requestState(Arm.State.GOING_UP);

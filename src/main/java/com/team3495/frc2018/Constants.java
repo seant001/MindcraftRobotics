@@ -66,6 +66,8 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
         public static final int intakeIn = 5;
         public static final int armRaise = 1;
         public static final int armLower = 2;
+        public static final int intakeOpen = 2;
+        
     }
         public static final class Deadbands
         {

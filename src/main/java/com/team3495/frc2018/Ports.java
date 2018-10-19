@@ -18,11 +18,14 @@ public class Ports {             // public: we want it to be accessible, right?
 
     public static final int INTAKE_RIGHT = 9;
     public static final int INTAKE_LEFT = 3;
+    public static final int SOLENOID_FORWARD = 0;
+    public static final int SOLENOID_REVERSE = 1;
     public static final int CLIMB = 7;
 
     public static final int JOYSTICK_LEFT = 0;
     public static final int JOYSTICK_RIGHT = 1;
     public static final int JOYSTICK_CODRIVER = 2;
+    
     /*
      *Rest of all the talons, encoders, etc. go here 
      * 

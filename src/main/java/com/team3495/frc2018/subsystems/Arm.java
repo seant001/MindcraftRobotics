@@ -31,6 +31,7 @@ public class Arm
             arm_right.enableVoltageCompensation(true);
             arm_right.setInverted(false);
             arm_left.setInverted(true);
+            arm_right.configOpenloopRamp(0.5, 10);
             state = State.HOLDING;
         }
         public void sendInputNormalized(double input)

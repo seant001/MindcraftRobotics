@@ -8,6 +8,10 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
        public static final double kRaiseVoltage = 8.0;
        public static final double kLowerVoltage = -8.0;
     }
+    public static class Climber
+    {
+        public static final double kMaxVoltage = 12.0;
+    }
     public static class Drivetrain 
     {
         public static final double kWheelBase = 3.0;    // ft    // try as hard as you can to keep your units consistent: if you use feet, use feet, not inches
@@ -54,21 +58,12 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     {
         public static final double kMaxVoltage =  12.0;
         public static final double kIntaking = 5.0;
-        public static final double kOuttaking = -5.0;
+        public static final double kOuttaking = -10.0;
         public static final double kHolding = 0.5;
 
     }
-    public static class TeleThreeJoysticks
+    public static class TankDriver
     {
-        public static class Buttons
-    {
-        public static final int intakeOut = 4;
-        public static final int intakeIn = 5;
-        public static final int armRaise = 1;
-        public static final int armLower = 2;
-        public static final int intakeOpen = 2;
-        
-    }
         public static final class Deadbands
         {
             public static class Left
@@ -83,4 +78,18 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
             }
         }
     }
+    public static class XboxCodriver
+    {
+        public static class Buttons
+    {
+        public static final Boolean isActualDriver = false;
+        public static final int intakeOut = isActualDriver ? 7 : 6; // mateo wants POV 0/180 for intake
+        public static final int intakeIn = isActualDriver ? 5 : 5;  // FIXME: implement as above
+        public static final int armRaise = isActualDriver ? 6 : 8;
+        public static final int armLower = isActualDriver ? 8 : 7;
+        public static final int intakeOpen = isActualDriver ? 1 : 1;
+        public static final int climber = isActualDriver ? 11 : 11;
+    }
+}
+    
 }

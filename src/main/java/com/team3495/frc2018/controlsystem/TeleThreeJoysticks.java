@@ -2,9 +2,12 @@ package com.team3495.frc2018.controlsystem;
 
 import com.team3495.frc2018.controlsystem.RoboSystem;
 import com.team3495.frc2018.subsystems.Arm;
+import com.team3495.frc2018.subsystems.Climber;
 import com.team3495.frc2018.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
 import com.team3495.frc2018.Ports;
 import com.team3495.frc2018.Util;
 import com.team3495.frc2018.Constants;
@@ -21,26 +24,20 @@ public class TeleThreeJoysticks
         robosystem = RoboSystem.getInstance();
         driverLeft = new Joystick(Ports.JOYSTICK_LEFT);
         driverRight = new Joystick(Ports.JOYSTICK_RIGHT);
-        coDriver = new Joystick(Ports.JOYSTICK_CODRIVER);
+        coDriver = new Joystick(Ports.XBOX_CODRIVER);
     } 
     private void driver()
     {
-        double left = Util.deadbandAndBound(driverLeft.getRawAxis(Constants.ControlAxes.yAxis),
-        Constants.TeleThreeJoysticks.Deadbands.Left.kMinReverse, 
-        Constants.TeleThreeJoysticks.Deadbands.Left.kMinForward,
+        double left = Util.deadbandAndBound(-driverLeft.getRawAxis(Constants.ControlAxes.yAxis),
+        Constants.TankDriver.Deadbands.Left.kMinReverse, 
+        Constants.TankDriver.Deadbands.Left.kMinForward,
         -1.0, 1.0);
-        double right = Util.deadbandAndBound(driverRight.getRawAxis(Constants.ControlAxes.yAxis),
-        Constants.TeleThreeJoysticks.Deadbands.Right.kMinReverse, 
-        Constants.TeleThreeJoysticks.Deadbands.Right.kMinForward,
+        double right = Util.deadbandAndBound(-driverRight.getRawAxis(Constants.ControlAxes.yAxis),
+        Constants.TankDriver.Deadbands.Right.kMinReverse, 
+        Constants.TankDriver.Deadbands.Right.kMinForward,
         -1.0, 1.0);
 
         robosystem.drivetrain.sendInputNormalized(left, right);
-        if (driverRight.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeOpen))
-        {
-            robosystem.intake.requestState(Intake.PistonState.OPEN);
-        }else{
-            robosystem.intake.requestState(Intake.PistonState.CLOSED);
-        }
 
         
    
@@ -49,10 +46,10 @@ public class TeleThreeJoysticks
     }
     private void coDriver()
     {
-        if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeIn))
+        if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeIn))
         {
             robosystem.intake.requestState(Intake.RollerState.INTAKING);
-        }else if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.intakeOut))
+        }else if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeOut))
         {
             robosystem.intake.requestState(Intake.RollerState.OUTTAKING);
         }else
@@ -60,16 +57,32 @@ public class TeleThreeJoysticks
             robosystem.intake.requestState(Intake.RollerState.IDLE);
         }
 
-        if(coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.armRaise))
+        if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.armRaise))
         {
             robosystem.arm.requestState(Arm.State.GOING_UP);
-        }else if (coDriver.getRawButton(Constants.TeleThreeJoysticks.Buttons.armLower))
+        }else if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.armLower))
         {
             robosystem.arm.requestState(Arm.State.GOING_DOWN);
         }else {
             robosystem.arm.requestState(Arm.State.HOLDING);
         }
+        if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeOpen))
+        {
+            robosystem.intake.closeIntake();
+        }else{
+            robosystem.intake.openIntake();
+        }
+        if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.climber))
+        {
+            robosystem.climber.requestState(Climber.State.GOING_UP);
+        }else
+        {
+            robosystem.climber.requestState(Climber.State.IDLE);
+        }
     }
+
+    
+    
     public void update()
     {
         driver();

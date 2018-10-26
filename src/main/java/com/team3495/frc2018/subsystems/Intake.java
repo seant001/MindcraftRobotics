@@ -36,7 +36,7 @@ public class Intake
         {
             intake_left = new TalonSRX(Ports.INTAKE_LEFT);
             intake_right = new TalonSRX(Ports.INTAKE_RIGHT);
-            double_s = new DoubleSolenoid(0,1);
+            double_s = new DoubleSolenoid(1,2);
 
             intake_right.follow(intake_left);
             intake_right.setInverted(false);
@@ -80,19 +80,16 @@ public class Intake
             break;
             case CLOSED: closeIntake();
             break;
-            default:
-            break;
+            default: closeIntake();
         }
       }
 
       public void openIntake() {
-        if (isOpen) double_s.set(DoubleSolenoid.Value.kReverse);
-        isOpen = true;
-    }
+         double_s.set(DoubleSolenoid.Value.kReverse);  
+      }
 
       public void closeIntake() {
-        if(!isOpen) double_s.set(DoubleSolenoid.Value.kForward);
-        isOpen = false;
+         double_s.set(DoubleSolenoid.Value.kForward);
       }
     
     

@@ -121,8 +121,8 @@ public class Robot extends IterativeRobot {
           //right side same switch
           robosystem.intake.requestState(Intake.PistonState.CLOSED);
           robosystem.intake.requestState(Intake.PistonState.OPEN);
-          robosystem.drivetrain.sendInputVolts(3.5, 4.5);
-          Timer.delay(1.95);
+          robosystem.drivetrain.sendInputVolts(3.5, 4.8);
+          Timer.delay(1.60);
           robosystem.arm.requestState(Arm.State.GOING_UP);
           Timer.delay(0.8);
           robosystem.drivetrain.sendInputVolts(0.0, 0.0);

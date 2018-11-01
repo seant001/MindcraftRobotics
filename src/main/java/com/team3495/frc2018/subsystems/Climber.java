@@ -39,7 +39,7 @@ public class Climber
         {
          this.state = state;
          switch(this.state){
-             case GOING_UP: sendInputVolts(Constants.Climber.kMaxVoltage);
+             case GOING_UP: climber.set(ControlMode.PercentOutput, -1);
              break;
              case IDLE:
              default: sendInputVolts(0.0);

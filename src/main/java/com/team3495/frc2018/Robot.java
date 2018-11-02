@@ -7,17 +7,13 @@
 
 package com.team3495.frc2018;
 
+import com.team3495.frc2018.auto.AutoModeExecutor;
 import com.team3495.frc2018.controlsystem.RoboSystem;
 import com.team3495.frc2018.controlsystem.TeleThreeJoysticks;
-import com.team3495.frc2018.subsystems.Arm;
-import com.team3495.frc2018.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,13 +23,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends IterativeRobot {
-  private String selected_auto;
-  private String selected_pos;
-  private final SendableChooser<String> starting_pos = new SendableChooser<>();
-  private final SendableChooser<String> auto_mode = new SendableChooser<>(); 
   private TeleThreeJoysticks teleControllers;
   private Compressor compressor;
   private RoboSystem robosystem;
+  private AutoModeExecutor pauloGarcia;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -41,14 +34,9 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void robotInit() {
-    starting_pos.addDefault("Left", "Left");
-    starting_pos.addObject("Center", "Center");
-    starting_pos.addObject("Right", "Right");
-    auto_mode.addDefault("Near Switch", "Near Switch");
-    SmartDashboard.putData("Starting Position", starting_pos);
-    SmartDashboard.putData("Auto Mode", auto_mode);
     teleControllers = TeleThreeJoysticks.getInstance();
     robosystem = RoboSystem.getInstance();
+    pauloGarcia = AutoModeExecutor.getInstance();
     
 	  compressor = new Compressor(0);
   }
@@ -78,12 +66,8 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void autonomousInit() {
-    selected_auto = auto_mode.getSelected();
-    selected_pos = starting_pos.getSelected();
-    // autoSelected = SmartDashboard.getString("Auto Selector",
-    // defaultAuto);
-    System.out.println("Position Selected: " + selected_pos);
-    System.out.println("Auto Selected: " + selected_auto);
+    pauloGarcia.selectAutoMode();
+    pauloGarcia.start();
   }
 
   private static boolean autoFinished = false;
@@ -92,10 +76,7 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    String gameData = DriverStation.getInstance().getGameSpecificMessage();
-    char switch_side = gameData.charAt(0);
-    char scale_side = gameData.charAt(1);
-    if (!autoFinished)
+    /*if (!autoFinished)
     switch (selected_auto) {
       case "Near Switch":
         // Put custom auto code here
@@ -140,7 +121,7 @@ public class Robot extends IterativeRobot {
       default:
         // Put default auto code here
         break;
-    }autoFinished = true;
+    }autoFinished = true;*/
   }
 
   /**

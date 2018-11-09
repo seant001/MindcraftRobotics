@@ -2,8 +2,7 @@ package com.team3495.frc2018.auto;
 
 import com.team1323.lib.util.CrashTrackingRunnable;
 import com.team3495.frc2018.auto.modes.AutoModeBase;
-import com.team3495.frc2018.auto.modes.StartLeftSwitchLeft;
-import com.team3495.frc2018.auto.modes.StartRightSwitchRight;
+import com.team3495.frc2018.auto.modes.*;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -25,7 +24,9 @@ public class AutoModeExecutor {
         starting_pos.addDefault("Left", "Left");
         starting_pos.addObject("Center", "Center");
         starting_pos.addObject("Right", "Right");
-        auto_mode_string.addDefault("Near Switch", "Near Switch");
+        auto_mode_string.addDefault("Do Nothing", "Do Nothing");
+        auto_mode_string.addObject("Near Scale", "Near Scale");
+        auto_mode_string.addObject("Near Switch", "Near Switch");
         SmartDashboard.putData("Starting Position", starting_pos);
         SmartDashboard.putData("Auto Mode", auto_mode_string);
     }
@@ -63,14 +64,33 @@ public class AutoModeExecutor {
                 setAutoMode(new StartRightSwitchRight(switch_side == 'R'));
                 break;
                 case "Center":
+                setAutoMode(new DoNothing());
                 break;
                 default:
                 break;
-            }
-            break;
-            default:
+            }break;
+            case "Near Scale":
+            switch(selected_pos)
+            {
+                case "Left":
+                setAutoMode(new StartLeftScaleLeft(scale_side == 'L'));
+                break;
+                case "Right":
+                setAutoMode(new StartRightScaleRight(scale_side == 'R'));
+                break;
+                case "Center":
+                setAutoMode(new DoNothing());
+                break;
+                default:
+                break;
+            }break;
+            case "Do Nothing":
+            
+            default:setAutoMode(new DoNothing());
             break;
         }
+        SmartDashboard.putString("Selected Auto", selected_auto);
+        SmartDashboard.putString("Selected Pos", selected_pos);
     }
 
     public void setAutoMode(AutoModeBase auto_mode) {

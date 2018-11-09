@@ -11,9 +11,10 @@ import com.team3495.frc2018.auto.AutoModeExecutor;
 import com.team3495.frc2018.controlsystem.RoboSystem;
 import com.team3495.frc2018.controlsystem.TeleThreeJoysticks;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -37,6 +38,7 @@ public class Robot extends IterativeRobot {
     teleControllers = TeleThreeJoysticks.getInstance();
     robosystem = RoboSystem.getInstance();
     pauloGarcia = AutoModeExecutor.getInstance();
+    CameraServer.getInstance().startAutomaticCapture();
     
 	  compressor = new Compressor(0);
   }
@@ -51,6 +53,7 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void robotPeriodic() {
+    robosystem.drivetrain.odometry.Update();
   }
 
   /**
@@ -130,6 +133,7 @@ public class Robot extends IterativeRobot {
   @Override
   public void teleopPeriodic() {
     teleControllers.update();
+  
   }
 
   /**

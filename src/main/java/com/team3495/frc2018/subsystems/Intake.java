@@ -85,11 +85,11 @@ public class Intake
       }
 
       public void openIntake() {
-         double_s.set(DoubleSolenoid.Value.kReverse);  
+         double_s.set(DoubleSolenoid.Value.kForward);  
       }
 
       public void closeIntake() {
-         double_s.set(DoubleSolenoid.Value.kForward);
+         double_s.set(DoubleSolenoid.Value.kReverse);
       }
     
     

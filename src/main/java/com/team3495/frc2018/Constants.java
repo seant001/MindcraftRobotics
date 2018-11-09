@@ -1,6 +1,7 @@
 package com.team3495.frc2018;
 
 public class Constants { // MODIFY BASED ON OUR ROBOT
+    public static final double kLoopTime = 0.02;//seconds
     public static class Arm 
     {
        public static final double kMaxVoltage = 12.0;
@@ -78,17 +79,17 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
             }
         }
     }
-    public static class XboxCodriver
+    public static class JoystickCodriver
     {
         public static class Buttons
     {
         public static final Boolean isActualDriver = false;
-        public static final int intakeOut = isActualDriver ? 7 : 6; // mateo wants POV 0/180 for intake
+        public static final int intakeOut = isActualDriver ? 7 : 4; // mateo wants POV 0/180 for intake
         public static final int intakeIn = isActualDriver ? 5 : 5;  // FIXME: implement as above
-        public static final int armRaise = isActualDriver ? 6 : 8;
-        public static final int armLower = isActualDriver ? 8 : 7;
-        public static final int intakeOpen = isActualDriver ? 1 : 1;
-        public static final int climber = isActualDriver ? 11 : 11;
+        public static final int armRaise = isActualDriver ? 6 : 1;
+        public static final int armLower = isActualDriver ? 8 : 2;
+        public static final int intakeOpen = isActualDriver ? 1 : 3;
+        public static final int climber = isActualDriver ? 11 : 7;
     }
 }
     

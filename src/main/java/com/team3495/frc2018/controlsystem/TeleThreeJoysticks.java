@@ -24,7 +24,7 @@ public class TeleThreeJoysticks
         robosystem = RoboSystem.getInstance();
         driverLeft = new Joystick(Ports.JOYSTICK_LEFT);
         driverRight = new Joystick(Ports.JOYSTICK_RIGHT);
-        coDriver = new Joystick(Ports.XBOX_CODRIVER);
+        coDriver = new Joystick(Ports.JOYSTICK_CODRIVER);
     } 
     private void driver()
     {
@@ -46,10 +46,10 @@ public class TeleThreeJoysticks
     }
     private void coDriver()
     {
-        if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeIn))
+        if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeIn))
         {
             robosystem.intake.requestState(Intake.RollerState.INTAKING);
-        }else if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeOut))
+        }else if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeOut))
         {
             robosystem.intake.requestState(Intake.RollerState.OUTTAKING);
         }else
@@ -57,22 +57,22 @@ public class TeleThreeJoysticks
             robosystem.intake.requestState(Intake.RollerState.IDLE);
         }
 
-        if(coDriver.getRawButton(Constants.XboxCodriver.Buttons.armRaise))
+        if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.armRaise))
         {
             robosystem.arm.requestState(Arm.State.GOING_UP);
-        }else if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.armLower))
+        }else if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.armLower))
         {
             robosystem.arm.requestState(Arm.State.GOING_DOWN);
         }else {
             robosystem.arm.requestState(Arm.State.HOLDING);
         }
-        if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.intakeOpen))
+        if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeOpen))
         {
-            robosystem.intake.closeIntake();
-        }else{
             robosystem.intake.openIntake();
+        }else{
+            robosystem.intake.closeIntake();
         }
-        if (coDriver.getRawButton(Constants.XboxCodriver.Buttons.climber))
+        if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.climber))
         {
             robosystem.climber.requestState(Climber.State.GOING_UP);
         }else

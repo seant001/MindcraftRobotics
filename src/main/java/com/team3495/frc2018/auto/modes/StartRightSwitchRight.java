@@ -13,8 +13,8 @@ public class StartRightSwitchRight extends AutoModeBase
     @Override public void routine()
     {
         runAction(new CloseIntakeAction());
-        runAction(new VoltageDriveAction(3.5,4.5));
-        runAction(new WaitSecondsAction(1.95));
+        runAction(new VoltageDriveAction(3.5,4.6));
+        runAction(new WaitSecondsAction(2.495));
         runAction(new VoltageDriveAction(0,0));
         if(dropCube)
         {

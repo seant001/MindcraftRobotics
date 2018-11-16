@@ -13,8 +13,8 @@ public class StartLeftSwitchLeft extends AutoModeBase
     @Override public void routine()
     {
         runAction(new CloseIntakeAction());
-        runAction(new VoltageDriveAction(4.5,3.5));
-        runAction(new WaitSecondsAction(1.95));
+        runAction(new VoltageDriveAction(4.6,3.5));
+        runAction(new WaitSecondsAction(2.495));
         runAction(new VoltageDriveAction(0,0));
         if(dropCube)
         {

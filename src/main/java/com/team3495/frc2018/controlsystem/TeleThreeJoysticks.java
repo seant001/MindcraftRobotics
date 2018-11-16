@@ -66,7 +66,7 @@ public class TeleThreeJoysticks
         }else {
             robosystem.arm.requestState(Arm.State.HOLDING);
         }
-        if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeOpen))
+        if (driverRight.getRawButton(Constants.JoystickCodriver.Buttons.intakeOpen))
         {
             robosystem.intake.openIntake();
         }else{

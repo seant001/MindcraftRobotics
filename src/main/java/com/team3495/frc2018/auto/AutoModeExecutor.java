@@ -27,6 +27,9 @@ public class AutoModeExecutor {
         auto_mode_string.addDefault("Do Nothing", "Do Nothing");
         auto_mode_string.addObject("Near Scale", "Near Scale");
         auto_mode_string.addObject("Near Switch", "Near Switch");
+        auto_mode_string.addObject("Near Scale Preferred", "Near Scale Preferred");
+        auto_mode_string.addObject("Near Switch Preferred", "Near Switch Preferred");
+        auto_mode_string.addObject("Path Testing", "Path Testing");
         SmartDashboard.putData("Starting Position", starting_pos);
         SmartDashboard.putData("Auto Mode", auto_mode_string);
     }
@@ -54,6 +57,9 @@ public class AutoModeExecutor {
         System.out.println("Auto Selected: " + selected_auto);
         switch(selected_auto)
         {
+            case "Path Testing":
+            setAutoMode(new PathTester());
+            break;
             case "Near Switch":
             switch(selected_pos)
             {
@@ -77,6 +83,80 @@ public class AutoModeExecutor {
                 break;
                 case "Right":
                 setAutoMode(new StartRightScaleRight(scale_side == 'R'));
+                break;
+                case "Center":
+                setAutoMode(new DoNothing());
+                break;
+                default:
+                break;
+            }break;
+            case "Near Switch Preferred":
+            switch(selected_pos)
+            {
+                case "Left":
+                if(switch_side == 'L')
+                {
+                setAutoMode(new StartLeftSwitchLeft(switch_side == 'L'));
+                break;
+                }else if(scale_side == 'L')
+                {
+                setAutoMode(new StartLeftScaleLeft(scale_side == 'L'));
+                break;
+                }else
+                {
+                setAutoMode(new DoNothing());
+                }
+                break;
+                case "Right":
+                if(switch_side == 'R')
+                {
+                setAutoMode(new StartRightSwitchRight(switch_side == 'R'));
+                break;
+                }else if(scale_side == 'R')
+                {
+                setAutoMode(new StartRightScaleRight(scale_side == 'R'));
+                break;
+                }else
+                {
+                setAutoMode(new DoNothing());
+                }
+                break;
+                case "Center":
+                setAutoMode(new DoNothing());
+                break;
+                default:
+                break;
+            }break;
+            case "Near Scale Preferred":
+            switch(selected_pos)
+            {
+                case "Left":
+                if(scale_side == 'L')
+                {
+                setAutoMode(new StartLeftScaleLeft(scale_side == 'L'));
+                break;
+                }else if(switch_side == 'L')
+                {
+                setAutoMode(new StartLeftSwitchLeft(switch_side == 'L'));
+                break;
+                }else
+                {
+                setAutoMode(new DoNothing());
+                }
+                break;
+                case "Right":
+                if(scale_side == 'R')
+                {
+                setAutoMode(new StartRightScaleRight(scale_side == 'R'));
+                break;
+                }else if(switch_side == 'R')
+                {
+                setAutoMode(new StartRightSwitchRight(switch_side == 'R'));
+                break;
+                }else
+                {
+                setAutoMode(new DoNothing());
+                }
                 break;
                 case "Center":
                 setAutoMode(new DoNothing());

@@ -4,8 +4,8 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     public static final double kLoopTime = 0.02;//seconds
     public static class Arm 
     {
-       public static final double kMaxVoltage = 12.0;
-       public static final double kSteadyStateFeedforward = 2.0;
+       public static final double kMaxVoltage = 12.0; 
+       public static final double kSteadyStateFeedforward = 1.7;
        public static final double kRaiseVoltage = 8.0;
        public static final double kLowerVoltage = -8.0;
     }
@@ -16,7 +16,10 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Drivetrain 
     {
         public static final double kWheelBase = 3.0;    // ft    // try as hard as you can to keep your units consistent: if you use feet, use feet, not inches
-        public static final double kMaxVoltage = 12.0;
+        public static final double kMaxVoltage = 11.5;
+        public static final double kWheelDiameter = 4.0;
+        public static final int kTicksPerRevolution = 1000;
+        public static final double kMaxVelocity = 5;
     
         public static class Left
      {
@@ -58,8 +61,8 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
     public static class Intake
     {
         public static final double kMaxVoltage =  12.0;
-        public static final double kIntaking = 5.0;
-        public static final double kOuttaking = -10.0;
+        public static final double kIntaking = 8.0;
+        public static final double kOuttaking = -8.0;
         public static final double kHolding = 0.5;
 
     }

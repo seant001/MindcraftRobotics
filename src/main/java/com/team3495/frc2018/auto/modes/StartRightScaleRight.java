@@ -14,9 +14,9 @@ public class StartRightScaleRight extends AutoModeBase
     {
         runAction(new CloseIntakeAction());
         runAction(new VoltageDriveAction(4.5,4.5));
-        runAction(new WaitSecondsAction(4.40));
+        runAction(new WaitSecondsAction(4.05));
         runAction(new VoltageDriveAction(2.50,5.10));
-        runAction(new WaitSecondsAction(1.85));
+        runAction(new WaitSecondsAction(1.30));
         runAction(new VoltageDriveAction(0,0));
         if(dropCube)
         {

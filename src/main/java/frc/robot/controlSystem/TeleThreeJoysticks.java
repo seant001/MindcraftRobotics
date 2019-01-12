@@ -1,16 +1,12 @@
-package com.team3495.frc2018.controlsystem;
+package frc.robot.controlSystem;
 
-import com.team3495.frc2018.controlsystem.RoboSystem;
-import com.team3495.frc2018.subsystems.Arm;
-import com.team3495.frc2018.subsystems.Climber;
-import com.team3495.frc2018.subsystems.Intake;
+import frc.robot.controlSystem.RoboSystem;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
-import com.team3495.frc2018.Ports;
-import com.team3495.frc2018.Util;
-import com.team3495.frc2018.Constants;
+import frc.robot.Ports;
+import frc.robot.Util;
+import frc.robot.Constants;
 
 public class TeleThreeJoysticks
 {
@@ -37,7 +33,12 @@ public class TeleThreeJoysticks
         Constants.TankDriver.Deadbands.Right.kMinForward,
         -1.0, 1.0);
 
-        robosystem.drivetrain.sendInputNormalized(left, right);
+        robosystem.drivetrain.setPower(left, right);
+
+        if(driverRight.getRawButton(1))
+        {
+        robosystem.drivetrain.limelightTurning(0.25, 0.25);
+    }
 
         
    
@@ -46,7 +47,7 @@ public class TeleThreeJoysticks
     }
     private void coDriver()
     {
-        if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeIn))
+        /*if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeIn))
         {
             robosystem.intake.requestState(Intake.RollerState.INTAKING);
         }else if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.intakeOut))
@@ -55,30 +56,7 @@ public class TeleThreeJoysticks
         }else
         {
             robosystem.intake.requestState(Intake.RollerState.IDLE);
-        }
-
-        if(coDriver.getRawButton(Constants.JoystickCodriver.Buttons.armRaise))
-        {
-            robosystem.arm.requestState(Arm.State.GOING_UP);
-        }else if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.armLower))
-        {
-            robosystem.arm.requestState(Arm.State.GOING_DOWN);
-        }else {
-            robosystem.arm.requestState(Arm.State.HOLDING);
-        }
-        if (driverRight.getRawButton(Constants.JoystickCodriver.Buttons.intakeOpen))
-        {
-            robosystem.intake.openIntake();
-        }else{
-            robosystem.intake.closeIntake();
-        }
-        if (coDriver.getRawButton(Constants.JoystickCodriver.Buttons.climber))
-        {
-            robosystem.climber.requestState(Climber.State.GOING_UP);
-        }else
-        {
-            robosystem.climber.requestState(Climber.State.IDLE);
-        }
+        }*/
     }
 
     

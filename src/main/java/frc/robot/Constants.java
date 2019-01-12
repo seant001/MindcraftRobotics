@@ -1,18 +1,8 @@
-package com.team3495.frc2018;
+package frc.robot;
 
 public class Constants { // MODIFY BASED ON OUR ROBOT
     public static final double kLoopTime = 0.02;//seconds
-    public static class Arm 
-    {
-       public static final double kMaxVoltage = 12.0; 
-       public static final double kSteadyStateFeedforward = 1.7;
-       public static final double kRaiseVoltage = 8.0;
-       public static final double kLowerVoltage = -8.0;
-    }
-    public static class Climber
-    {
-        public static final double kMaxVoltage = 12.0;
-    }
+
     public static class Drivetrain 
     {
         public static final double kWheelBase = 3.0;    // ft    // try as hard as you can to keep your units consistent: if you use feet, use feet, not inches
@@ -20,6 +10,8 @@ public class Constants { // MODIFY BASED ON OUR ROBOT
         public static final double kWheelDiameter = 4.0;
         public static final int kTicksPerRevolution = 1000;
         public static final double kMaxVelocity = 5;
+        public static final float Kp = -0.1f;
+        public static final float min_command = 0.05f;
     
         public static class Left
      {
